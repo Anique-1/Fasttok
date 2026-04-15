@@ -4,7 +4,7 @@ from fasttok import Tokenizer
 
 # --- CONFIGURATION ---
 # Replace with your actual key or set the environment variable
-OPENAI_API_KEY = "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" 
+OPENAI_API_KEY = "" 
 MODEL = "gpt-4.1-mini"
 
 def run_real_test():

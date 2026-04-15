@@ -1,0 +1,34 @@
+# Python build artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# C extension build outputs
+*.pyd
+*.so
+*.dylib
+
+# Test caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE folders
+.vscode/
+.idea/
+
+# Mock / generated vocab files (real vocabs are user-supplied)
+vocabs/
+
+# OS files
+.DS_Store
+Thumbs.db

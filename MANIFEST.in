@@ -1,0 +1,15 @@
+# Include all C++ source and header files in the source distribution
+recursive-include src *.cpp *.hpp *.h
+recursive-include include *.hpp *.h
+
+# Include build config
+include setup.py
+include pyproject.toml
+include LICENSE
+include README.md
+
+# Exclude test artifacts and build cache
+exclude *.egg-info
+recursive-exclude build *
+recursive-exclude .github *
+exclude vocabs/*

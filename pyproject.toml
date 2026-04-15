@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=64", "pybind11>=2.4"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fasttok"
+version = "0.1.0"
+description = "High-performance C++ tokenizer and prompt compressor for LLMs — reduce API costs by 10-25%"
+authors = [{name = "Anique"}]
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "pybind11>=2.4",
+]
+keywords = [
+    "tokenizer", "llm", "gpt", "claude", "gemini", "llama", "bert",
+    "bpe", "wordpiece", "token", "compression", "openai", "nlp"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: C++",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/Anique/fasttok"
+Repository = "https://github.com/Anique/fasttok"
+Issues = "https://github.com/Anique/fasttok/issues"
+
+[tool.setuptools]
+packages = ["fasttok"]

@@ -20,16 +20,19 @@ ext_modules = [
             get_pybind_include(user=True),
             'include/'
         ],
-        extra_compile_args=['/O2', '/openmp', '/arch:AVX2', '/std:c++17'] if sys.platform == 'win32' else ['-O3', '-fopenmp', '-mavx2', '-std=c++17'],
-        extra_link_args=['/openmp'] if sys.platform == 'win32' else ['-fopenmp'],
+        extra_compile_args=['/O2', '/openmp', '/arch:AVX2', '/std:c++17'] if sys.platform == 'win32' else 
+                           (['-O3', '-mavx2', '-std=c++17'] + (['-fopenmp'] if sys.platform == 'linux' else [])),
+        extra_link_args=['/openmp'] if sys.platform == 'win32' else 
+                        (['-fopenmp'] if sys.platform == 'linux' else []),
         language='c++'
     ),
 ]
 
 setup(
     name='fasttok',
-    version='0.1.0',
-    author='Antigravity',
+    version='0.1.1',
+    author='Anique',
+    author_email='muhammadanique81@gmail.com',
     description='A high-performance C++ powered tokenizer and compressor for LLMs',
     packages=['fasttok'],
     ext_modules=ext_modules,

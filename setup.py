@@ -1,5 +1,4 @@
 from setuptools import setup, Extension
-from setuptools.command.build_ext import build_ext
 import sys
 import platform
 import os
@@ -24,10 +23,12 @@ if 'arm64' in archflags:
 # Configure compile arguments based on platform and architecture
 if sys.platform == 'win32':
     compile_args = ['/O2', '/openmp', '/std:c++17']
+    link_args = ['/openmp']
     if is_x86:
         compile_args.append('/arch:AVX2')
 else:
     compile_args = ['-O3', '-std=c++17']
+    link_args = []
     
     # macOS clang doesn't generally need or support -mavx2 well during universal2/arm64 cross-compilation
     if is_x86 and sys.platform != 'darwin':
@@ -35,6 +36,7 @@ else:
         
     if sys.platform == 'linux':
         compile_args.append('-fopenmp')
+        link_args.append('-fopenmp')
 
 ext_modules = [
     Extension(
@@ -46,8 +48,7 @@ ext_modules = [
             'include/'
         ],
         extra_compile_args=compile_args,
-        extra_link_args=['/openmp'] if sys.platform == 'win32' else 
-                        (['-fopenmp'] if sys.platform == 'linux' else []),
+        extra_link_args=link_args,
         language='c++'
     ),
 ]

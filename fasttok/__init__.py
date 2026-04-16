@@ -9,6 +9,8 @@ Supports:
   • Claude / Gemini / Groq — mapped to the correct underlying algorithm
 """
 
+from __future__ import annotations
+
 import os
 from typing import Optional, List
 

@@ -148,7 +148,7 @@ class Tokenizer:
         return Tokenizer(engine, comp, algorithm, model_name)
 
     @staticmethod
-    def _build_engine(algorithm: str, vocab_path: str | None, model_name: str):
+    def _build_engine(algorithm: str, vocab_path: Optional[str], model_name: str):
         """Instantiate the correct C++ engine for the algorithm."""
         if vocab_path and os.path.exists(vocab_path):
             if algorithm == "wordpiece":
@@ -174,7 +174,7 @@ class Tokenizer:
         """Decode token IDs back to text."""
         return self._engine.decode(ids)
 
-    def count(self, text: str, budget: int | None = None) -> int:
+    def count(self, text: str, budget: Optional[int] = None) -> int:
         """
         Count tokens in text.
 

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fasttok"
-version = "0.1.0"
+version = "0.1.4"
 description = "High-performance C++ tokenizer and prompt compressor for LLMs — reduce API costs by 10-25%"
 authors = [{name = "Anique"}]
 license = {file = "LICENSE"}

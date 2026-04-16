@@ -3,6 +3,8 @@
 **High-performance C++ tokenizer and prompt compressor for LLMs.**
 Reduce OpenAI, Claude, and Gemini API costs by 10–25% with one line of code.
 
+![FastTok Performance Dashboard](fasttok_white_dashboard.png)
+
 ![Tests](https://github.com/Anique/fasttok/actions/workflows/tests.yml/badge.svg)
 [![PyPI version](https://badge.fury.io/py/fasttok.svg)](https://badge.fury.io/py/fasttok)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)

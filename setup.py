@@ -1,7 +1,24 @@
-from setuptools import setup, Extension
-from setuptools.command.build_ext import build_ext
 import sys
-import setuptools
+import platform
+from setuptools import setup, Extension
+
+# Determine if the current platform is macOS on ARM
+is_mac_arm = sys.platform == 'darwin' and platform.machine() in ['arm64', 'aarch64']
+
+# Base arguments
+if sys.platform == 'win32':
+    compile_args = ['/O2', '/openmp', '/arch:AVX2', '/std:c++17']
+    link_args = ['/openmp']
+else:
+    compile_args = ['-O3', '-std=c++17']
+    # Add AVX2 for non-ARM macOS and Linux
+    if not is_mac_arm:
+        compile_args.append('-mavx2')
+    # OpenMP is typically not available by default on macOS clang
+    if sys.platform == 'linux':
+        compile_args.append('-fopenmp')
+        
+    link_args = ['-fopenmp'] if sys.platform == 'linux' else []
 
 class get_pybind_include(object):
     def __init__(self, user=False):
@@ -20,10 +37,8 @@ ext_modules = [
             get_pybind_include(user=True),
             'include/'
         ],
-        extra_compile_args=['/O2', '/openmp', '/arch:AVX2', '/std:c++17'] if sys.platform == 'win32' else 
-                           (['-O3', '-mavx2', '-std=c++17'] + (['-fopenmp'] if sys.platform == 'linux' else [])),
-        extra_link_args=['/openmp'] if sys.platform == 'win32' else 
-                        (['-fopenmp'] if sys.platform == 'linux' else []),
+        extra_compile_args=compile_args,
+        extra_link_args=link_args,
         language='c++'
     ),
 ]

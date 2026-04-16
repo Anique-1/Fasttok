@@ -55,7 +55,7 @@ ext_modules = [
 
 setup(
     name='fasttok',
-    version='0.1.4',
+    version='0.1.5',
     author='Anique',
     author_email='muhammadanique81@gmail.com',
     description='A high-performance C++ powered tokenizer and compressor for LLMs',

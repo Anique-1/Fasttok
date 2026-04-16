@@ -5,7 +5,7 @@ Reduce OpenAI, Claude, and Gemini API costs by 10–25% with one line of code.
 
 ![FastTok Performance Dashboard](fasttok_white_dashboard.png)
 
-![Tests](https://github.com/Anique/fasttok/actions/workflows/tests.yml/badge.svg)
+![Tests](https://github.com/Anique-1/fasttok/actions/workflows/tests.yml/badge.svg)
 [![PyPI version](https://badge.fury.io/py/fasttok.svg)](https://badge.fury.io/py/fasttok)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -134,4 +134,4 @@ tok = Tokenizer.from_pretrained("llama-3", vocab="path/to/tokenizer.json")
 
 ## License
 
-[MIT](LICENSE) © 2026 Anique
+[MIT License](LICENSE) © 2026 Anique

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fasttok"
-version = "0.1.4"
+version = "0.1.5"
 description = "High-performance C++ tokenizer and prompt compressor for LLMs — reduce API costs by 10-25%"
 authors = [{name = "Anique"}]
 license = {file = "LICENSE"}
@@ -34,9 +34,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Anique/fasttok"
-Repository = "https://github.com/Anique/fasttok"
-Issues = "https://github.com/Anique/fasttok/issues"
+Homepage = "https://github.com/Anique-1/fasttok"
+Repository = "https://github.com/Anique-1/fasttok"
+Issues = "https://github.com/Anique-1/fasttok/issues"
 
 [tool.setuptools]
 packages = ["fasttok"]

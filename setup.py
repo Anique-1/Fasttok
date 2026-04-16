@@ -2,6 +2,7 @@ from setuptools import setup, Extension
 from setuptools.command.build_ext import build_ext
 import sys
 import platform
+import os
 
 class get_pybind_include(object):
     def __init__(self, user=False):
@@ -15,6 +16,11 @@ class get_pybind_include(object):
 machine = platform.machine().lower()
 is_x86 = machine in ['x86_64', 'amd64', 'x86', 'i386', 'i686']
 
+# In macOS cross-compilation environments (like cibuildwheel), ARCHFLAGS dictates the target
+archflags = os.environ.get('ARCHFLAGS', '')
+if 'arm64' in archflags:
+    is_x86 = False
+
 # Configure compile arguments based on platform and architecture
 if sys.platform == 'win32':
     compile_args = ['/O2', '/openmp', '/std:c++17']
@@ -22,8 +28,11 @@ if sys.platform == 'win32':
         compile_args.append('/arch:AVX2')
 else:
     compile_args = ['-O3', '-std=c++17']
-    if is_x86:
+    
+    # macOS clang doesn't generally need or support -mavx2 well during universal2/arm64 cross-compilation
+    if is_x86 and sys.platform != 'darwin':
         compile_args.append('-mavx2')
+        
     if sys.platform == 'linux':
         compile_args.append('-fopenmp')
 
